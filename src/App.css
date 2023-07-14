@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css?family=DM+Mono");
+
 .App {
   text-align: center;
   background-color: #121212;
@@ -23,7 +25,8 @@ nav {
 
 nav h1 {
   margin: 0;
-  font-family: Helvetica, Arial, sans-serif;
+  /* font-family: Helvetica, Arial, sans-serif; */
+  font-family: "DM Mono", monospace;
   color: white;
   font-size: 45px;
 }
@@ -61,7 +64,7 @@ nav h1 {
   font-size: 30px;
   font-weight: bolder;
   color: white;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: "DM Mono", monospace;
 }
 
 #correct {
@@ -115,7 +118,7 @@ nav h1 {
   font-size: 20px;
   background-color: grey;
   color: white;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: "DM Mono", monospace;
   cursor: pointer;
 }
 
@@ -128,4 +131,8 @@ nav h1 {
 
 .shuffle-text {
   transition: all 0.3s ease;
+}
+
+.gameOver {
+  font-family: "DM Mono", monospace;
 }
