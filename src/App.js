@@ -4,6 +4,7 @@ import Keyboard from "./Components/Keyboard";
 import React, { useState, createContext, useEffect } from "react";
 import { boardDefault, generateWordSet } from "./Words";
 import GameOver from "./Components/GameOver";
+import TextHover from "./Components/TextHover";
 
 export const AppContext = createContext();
 function App() {
@@ -18,6 +19,8 @@ function App() {
     gameOver: false,
     guessedWord: false,
   });
+  const [isHovered, setIsHovered] = useState(false);
+  const [displayText, setDisplayText] = useState("WORDLE");
 
   const onLetter = (key) => {
     if (currAttempt.letterPosition > 4) return;
@@ -71,32 +74,39 @@ function App() {
   }, []);
 
   return (
-    <div className="App">
-      <nav>
-        <h1>Wordle</h1>
-      </nav>
-      <AppContext.Provider
-        value={{
-          board,
-          setBoard,
-          currAttempt,
-          setCurrAttempt,
-          onLetter,
-          onEnter,
-          onDelete,
-          correctWord,
-          disabledLetters,
-          setDisabledLetters,
-          setGameOver,
-          gameOver,
-        }}
-      >
+    <AppContext.Provider
+      value={{
+        board,
+        setBoard,
+        currAttempt,
+        setCurrAttempt,
+        onLetter,
+        onEnter,
+        onDelete,
+        correctWord,
+        disabledLetters,
+        setDisabledLetters,
+        setGameOver,
+        gameOver,
+        isHovered,
+        setIsHovered,
+        displayText,
+        setDisplayText,
+      }}
+    >
+      <div className="App">
+        <nav>
+          <h1>
+            <TextHover originalText="WORDLE" hoveredText="AGAIN?" refresh />
+          </h1>
+        </nav>
+
         <div className="game">
           <Board />
           {gameOver.gameOver ? <GameOver /> : <Keyboard />}
         </div>
-      </AppContext.Provider>
-    </div>
+      </div>
+    </AppContext.Provider>
   );
 }
 

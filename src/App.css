@@ -125,3 +125,7 @@ nav h1 {
 #disabled {
   background-color: #3a393c;
 }
+
+.shuffle-text {
+  transition: all 0.3s ease;
+}
