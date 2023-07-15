@@ -1,17 +1,71 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext, useEffect, useRef } from "react";
 import { AppContext } from "../App";
 
 function TextHover({ originalText, hoveredText, refresh }) {
   const { isHovered, setIsHovered, displayText, setDisplayText } =
     useContext(AppContext);
+
+  useEffect(() => {
+    spanRef.current = document.querySelector(".shuffle-text");
+  }, []);
+
+  const spanRef = useRef(null);
+  let intervalId;
+
+  const startShuffle = (targetText) => {
+    const letters = targetText.split("");
+
+    let counter = 0;
+    const shuffleCount = 3;
+    const shuffleInterval = 48;
+
+    intervalId = setInterval(() => {
+      const shuffledText = letters
+        .map((char, index) => {
+          if (char.match(/[a-zA-Z0-9?]/)) {
+            const randomCharacter = getRandomCharacter();
+            const cyclesToRevert = index - Math.floor(counter / shuffleCount);
+            if (counter >= cyclesToRevert * shuffleCount) {
+              return targetText[index];
+            }
+            return randomCharacter;
+          }
+          return char;
+        })
+        .join("");
+
+      spanRef.current.textContent = shuffledText;
+
+      counter++;
+      if (counter >= shuffleCount * letters.length) {
+        clearInterval(intervalId);
+        spanRef.current.textContent = targetText;
+      }
+    }, shuffleInterval);
+  };
+
+  useEffect(() => {
+    return () => {
+      clearInterval(intervalId);
+    };
+  }, []);
+
+  function getRandomCharacter() {
+    const characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789?!/";
+    const randomIndex = Math.floor(Math.random() * characters.length);
+    return characters[randomIndex];
+  }
+
   const handleMouseEnter = () => {
     setIsHovered(true);
-    setDisplayText("AGAIN?");
+    clearInterval(intervalId);
+    startShuffle(hoveredText);
   };
 
   const handleMouseLeave = () => {
     setIsHovered(false);
-    setDisplayText("WORDLE");
+    clearInterval(intervalId);
+    startShuffle(originalText);
   };
 
   const handleRefresh = () => {
