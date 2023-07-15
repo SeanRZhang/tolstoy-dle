@@ -26,6 +26,9 @@ function App() {
     if (currAttempt.letterPosition > 4) return;
     const newBoard = [...board];
     newBoard[currAttempt.attempt][currAttempt.letterPosition] = key;
+    newBoard[currAttempt.attempt][currAttempt.letterPosition + 1] = (
+      <span className="blinking-cursor">_</span>
+    );
     setBoard(newBoard);
     setCurrAttempt({
       ...currAttempt,
@@ -42,6 +45,13 @@ function App() {
     }
     if (wordSet.has(currWord.toLowerCase())) {
       setCurrAttempt({ attempt: currAttempt.attempt + 1, letterPosition: 0 });
+      if (currAttempt.attempt < 5) {
+        const newBoard = [...board];
+        newBoard[currAttempt.attempt + 1][0] = (
+          <span className="blinking-cursor">_</span>
+        );
+        setBoard(newBoard);
+      }
       if (currWord === correctWord.toUpperCase()) {
         setGameOver({ gameOver: true, guessedWord: true });
         return;
@@ -56,7 +66,10 @@ function App() {
   const onDelete = () => {
     if (currAttempt.letterPosition === 0) return;
     const newBoard = [...board];
-    newBoard[currAttempt.attempt][currAttempt.letterPosition - 1] = "";
+    newBoard[currAttempt.attempt][currAttempt.letterPosition] = "";
+    newBoard[currAttempt.attempt][currAttempt.letterPosition - 1] = (
+      <span className="blinking-cursor">_</span>
+    );
     setBoard(newBoard);
     setCurrAttempt({
       ...currAttempt,

@@ -2,7 +2,7 @@ import wordBank from "./TextFiles/valid-wordle-words.txt";
 import answerBank from "./TextFiles/tolstoy-word-bank.txt";
 
 export const boardDefault = [
-  ["", "", "", "", ""],
+  [<span className="blinking-cursor">_</span>, "", "", "", ""],
   ["", "", "", "", ""],
   ["", "", "", "", ""],
   ["", "", "", "", ""],
