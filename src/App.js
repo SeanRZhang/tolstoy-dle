@@ -20,7 +20,7 @@ function App() {
     guessedWord: false,
   });
   const [isHovered, setIsHovered] = useState(false);
-  const [displayText, setDisplayText] = useState("WORDLE");
+  const [displayText, setDisplayText] = useState("TOLSTOY-DLE");
 
   const onLetter = (key) => {
     if (currAttempt.letterPosition > 4) return;
@@ -97,7 +97,11 @@ function App() {
       <div className="App">
         <nav>
           <h1>
-            <TextHover originalText="WORDLE" hoveredText="AGAIN?" refresh />
+            <TextHover
+              originalText="TOLSTOY-DLE"
+              hoveredText="PLAY-AGAIN?"
+              refresh
+            />
           </h1>
         </nav>
 

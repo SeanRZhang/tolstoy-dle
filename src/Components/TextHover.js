@@ -22,7 +22,7 @@ function TextHover({ originalText, hoveredText, refresh }) {
     intervalId = setInterval(() => {
       const shuffledText = letters
         .map((char, index) => {
-          if (char.match(/[a-zA-Z0-9?]/)) {
+          if (char.match(/[a-zA-Z0-9?-]/)) {
             const randomCharacter = getRandomCharacter();
             const cyclesToRevert = index - Math.floor(counter / shuffleCount);
             if (counter >= cyclesToRevert * shuffleCount) {
@@ -73,10 +73,13 @@ function TextHover({ originalText, hoveredText, refresh }) {
   };
 
   return (
-    <div onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
+    <div
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
+      onClick={handleRefresh}
+    >
       <span
         className="shuffle-text"
-        onClick={handleRefresh}
         style={refresh ? { cursor: "pointer" } : { cursor: "default" }}
       >
         {displayText}
