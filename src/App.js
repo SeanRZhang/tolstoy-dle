@@ -54,6 +54,11 @@ function App() {
       }
       if (currWord === correctWord.toUpperCase()) {
         setGameOver({ gameOver: true, guessedWord: true });
+        if (currAttempt.attempt < 5) {
+          const newBoard = [...board];
+          newBoard[currAttempt.attempt + 1][0] = "";
+          setBoard(newBoard);
+        }
         return;
       } else if (currAttempt.attempt === 5) {
         setGameOver({ gameOver: true, guessedWord: false });
