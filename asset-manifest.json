@@ -1,17 +1,17 @@
 {
   "files": {
-    "main.css": "/tolstoy-dle/static/css/main.0cc4b937.css",
-    "main.js": "/tolstoy-dle/static/js/main.12bc93a2.js",
+    "main.css": "/tolstoy-dle/static/css/main.cc0d7894.css",
+    "main.js": "/tolstoy-dle/static/js/main.4ccf39f0.js",
     "static/js/787.fb9823ae.chunk.js": "/tolstoy-dle/static/js/787.fb9823ae.chunk.js",
     "static/media/valid-wordle-words.txt": "/tolstoy-dle/static/media/valid-wordle-words.f9a6efd2d577f00a3a93.txt",
     "static/media/tolstoy-word-bank.txt": "/tolstoy-dle/static/media/tolstoy-word-bank.b4e58895884c6fa3481f.txt",
     "index.html": "/tolstoy-dle/index.html",
-    "main.0cc4b937.css.map": "/tolstoy-dle/static/css/main.0cc4b937.css.map",
-    "main.12bc93a2.js.map": "/tolstoy-dle/static/js/main.12bc93a2.js.map",
+    "main.cc0d7894.css.map": "/tolstoy-dle/static/css/main.cc0d7894.css.map",
+    "main.4ccf39f0.js.map": "/tolstoy-dle/static/js/main.4ccf39f0.js.map",
     "787.fb9823ae.chunk.js.map": "/tolstoy-dle/static/js/787.fb9823ae.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.0cc4b937.css",
-    "static/js/main.12bc93a2.js"
+    "static/css/main.cc0d7894.css",
+    "static/js/main.4ccf39f0.js"
   ]
 }
