@@ -117,8 +117,15 @@ function App() {
             />
           </h1>
         </nav>
-
         <div className="game">
+          <div className="vertical-text-left">
+            A version of Wordle featuring words from Leo Tolstoy's War and Peace
+            and Anna Karenina (proper nouns included)
+          </div>
+          <div className="vertical-text-right">
+            Some mathematician has said that pleasure lies not in discovering
+            truth, but in searching for it -Anna Karenina
+          </div>
           <Board />
           {gameOver.gameOver ? <GameOver /> : <Keyboard />}
         </div>
